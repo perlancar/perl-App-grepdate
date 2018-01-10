@@ -12,7 +12,7 @@ use Getopt::Long;
 my %Opts = (
     # highlight => 1,
     reverse => 0,
-    parser => 'Date::Extract',
+    parser => 'Date::Extract::PERLANCAR',
 );
 my $Parser;
 my $Code_Parse;
@@ -42,9 +42,9 @@ USAGE
     );
     exit 99 if !$res;
 
-    if ($Opts{parser} eq 'Date::Extract') {
-        require Date::Extract;
-        $Parser = Date::Extract->new(format => 'combined');
+    if ($Opts{parser} eq 'Date::Extract::PERLANCAR') {
+        require Date::Extract::PERLANCAR;
+        $Parser = Date::Extract::PERLANCAR->new(format => 'combined');
         $Code_Parse = sub { $Parser->extract($_[0]) };
     } elsif ($Opts{parser} eq 'Date::Extract::ID') {
         require Date::Extract::ID;
@@ -72,9 +72,9 @@ USAGE
 }
 
 sub run {
-    require Date::Extract;
+    require Date::Extract::PERLANCAR;
 
-    my $parser = Date::Extract->new(
+    my $parser = Date::Extract::PERLANCAR->new(
         format => "combined",
         returns => "first",
     );
@@ -117,12 +117,13 @@ run();
 
 =item * --reverse, -v
 
-=item * --parser=s (default: Date::Extract)
+=item * --parser=s (default: Date::Extract::PERLANCAR)
 
-Choose either L<Date::Extract>, L<Date::Extract::ID>,
+Choose either L<Date::Extract::PERLANCAR>, L<Date::Extract::ID>,
 L<DateTime::Format::Alami::EN>, L<DateTime::Format::Alami::ID>.
 
 =back
+
 
 =head1 EXIT CODES
 
