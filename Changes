@@ -1,8 +1,8 @@
-0.002   2018-01-10 (PERLANCAR)
+0.002   2018-01-10  Released-By: PERLANCAR
 
 	- Switch from Date::Extract to Date::Extract::PERLANCAR.
 
 
-0.001   2017-04-25 (PERLANCAR)
+0.001   2017-04-25  Released-By: PERLANCAR
 
         - First release.
